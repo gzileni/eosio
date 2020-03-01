@@ -1,5 +1,8 @@
 # EOS Docker Node Test Network
 
+## Prerequisites
+
+## Run Docker
 
 ## How to use Scatter
 1. Navigate to [https://get-scatter.com](https://get-scatter.com).
@@ -100,7 +103,7 @@ Paste the private key for the account name used when the desired chain was creat
 ```
 cleos -u network_api_url system newaccount genesis_account --transfer account_to_be_created account_to_be_created_eos_public_key account_to_be_created_eos_public_key --stake-net ' 10.token_precision token_symbol' --stake-cpu '10.token_precision token_symbol' --buy-ram-kbytes 8192 -p genesis_account@active
 
-cleos -u https://204932fc176127c57baa53da4c428edc.phase2.network.strongblock.io system newaccount clementine --transfer clementiot33 EOS7cbeQjFcyXTM5D2cv2hNZgPoZEAMqsuQ8Ln3Dy3c2c6zypvAu1 EOS7cbeQjFcyXTM5D2cv2hNZgPoZEAMqsuQ8Ln3Dy3c2c6zypvAu1 --stake-net ' 10.00 AGRI’ --stake-cpu '10.00 token_symbol' --buy-ram-kbytes 8192 -p clementine@active
+cleos system newaccount clementine --transfer clementiot33 EOS7cbeQjFcyXTM5D2cv2hNZgPoZEAMqsuQ8Ln3Dy3c2c6zypvAu1 EOS7cbeQjFcyXTM5D2cv2hNZgPoZEAMqsuQ8Ln3Dy3c2c6zypvAu1 --stake-net ' 10.00 AGRI’ --stake-cpu '10.00 token_symbol' --buy-ram-kbytes 8192 -p clementine@active
 ```
 
 Create an EOS key pair for the new account (see the Scatter Support instructions above for how to generate a new key pair in Scatter).
@@ -115,7 +118,7 @@ Replace both token_precision variables in the COMMAND above with a value of the 
 ##### EXAMPLE 
 
 ```
-cleos -u http://my-network.alpha.blockchain.strongblock.io system newaccount adminaccount --transfer douganderson EOS7xn3qvgD2q44gzqhMkF6y6TPAMGw4An9n6dawo1opkGTFz7jnB EOS7xn3qvgD2q44gzqhMkF6y6TPAMGw4An9n6dawo1opkGTFz7jnB --stake-net '10.1234 ADMN' --stake-cpu '10.1234 ADMN' --buy-ram-kbytes 8192 -p adminaccount@active
+cleos system newaccount adminaccount --transfer douganderson EOS7xn3qvgD2q44gzqhMkF6y6TPAMGw4An9n6dawo1opkGTFz7jnB EOS7xn3qvgD2q44gzqhMkF6y6TPAMGw4An9n6dawo1opkGTFz7jnB --stake-net '10.1234 ADMN' --stake-cpu '10.1234 ADMN' --buy-ram-kbytes 8192 -p adminaccount@active
 ```
 
 #### TRANSFER TOKENS
@@ -133,7 +136,7 @@ Replace both token_precision variables in the COMMAND above with a value of the 
 ##### EXAMPLE 
 
 ```
-cleos -u http://my-network.alpha.blockchain.strongblock.io transfer adminaccount douganderson '1000.1234 ADMN' 'transferring tokens' -p adminaccount@active
+cleos transfer adminaccount douganderson '1000.1234 ADMN' 'transferring tokens' -p adminaccount@active
 ```
 
 #### VIEW ACCOUNT INFO
@@ -148,13 +151,13 @@ Replace the account_to_get variable in the COMMAND above with the desired accoun
 ##### EXAMPLE 
 
 ```
-cleos -u http://my-network.alpha.blockchain.strongblock.io get account douganderson
+cleos get account douganderson
 ```
 
 #### VIEW ACCOUNT BALANCE
 
 ```
-cleos -u http://my-network.alpha.blockchain.strongblock.io get currency balance eosio.token account_to_look_up token_symbol
+cleos get currency balance eosio.token account_to_look_up token_symbol
 ```
 
 Replace the network_api_url variable in the COMMAND above with the desired chain network api url. 
@@ -164,7 +167,7 @@ Replace both token_symbol variables in the COMMAND above with the token symbol o
 ##### EXAMPLE
 
 ```
-cleos -u http://my-network.alpha.blockchain.strongblock.io get currency balance eosio.token douganderson ADMN
+cleos get currency balance eosio.token douganderson ADMN
 ```
 
 #### OPEN WALLET
