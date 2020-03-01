@@ -19,8 +19,17 @@ cd eosio
 docker-compose up
 ```
 
-## Create Development enviroment
+## Create Test Account
+You have to create account on [The EOSIO Testnet](https://testnet.eos.io)
 
-1. [Create Development Wallet](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-development-wallet)
+![EOS Test](./assets/img/eostestnet.png)
+
+## Create Development Enviroment
+
+First follow instructions about to [Create Development Wallet](https://developers.eos.io/welcome/latest/getting-started/development-environment/create-development-wallet)
+
+### Create Development Account  
 
 
+
+![EOS Test](./assets/img/eostestnet-account.png)
