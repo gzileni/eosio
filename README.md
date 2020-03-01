@@ -1,8 +1,21 @@
 # EOS Docker Node Test Network
 
-## Prerequisites
+## Operating System
+The EOSIO software supports the following environments for development and/or deployment:
+
+- Amazon Linux 2
+- Centos 7
+- Ubuntu 16.04
+- Ubuntu 18.04
+- MacOS 10.14 (Mojave) and higher
 
 ## Run Docker
+
+```
+git clone https://github.com/gzileni/eosio.git
+cd eosio
+docker-compose up
+```
 
 ## How to use Scatter
 1. Navigate to [https://get-scatter.com](https://get-scatter.com).
