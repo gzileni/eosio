@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+# EOS Docker Node Test Network
 
-You can use the [editor on GitHub](https://github.com/gzileni/eosio/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![EOS Architecture](./assets/img/eos-system-architecture.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Operating System
+The EOSIO software supports the following environments for development and/or deployment:
 
-### Markdown
+- Amazon Linux 2
+- Centos 7
+- Ubuntu 16.04
+- Ubuntu 18.04
+- MacOS 10.14 (Mojave) and higher
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Run Docker
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+git clone https://github.com/gzileni/eosio.git
+cd eosio
+docker-compose up
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Create Test Account
+You have to create account on [The EOSIO Testnet](https://testnet.eos.io)
 
-### Jekyll Themes
+![EOS Test](./assets/img/eostestnet.png)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gzileni/eosio/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+cleos get account <YOUR ACCOUNT>
+```
 
-### Support or Contact
+## Download Latest Snapshot
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+![EOS Test](./assets/img/snapshot-1.png)
+
+Latest Snapshot contains information about a blockchain, blocks and transactions contained in the blocks.
+
+![EOS Test](./assets/img/snapshot-2.png)
+
+```
+cd snapshots
+wget https://snapshot.testnet.eos.io/2020_03_01_15_59_01/snapshots.tar.gz
+tar -xf snapshots.tar.gz
+```
+
+Modify configuration docker-compose.yml file:
+
+```
+.
+.
+.
+nodeosd:
+    image: gzileni/eosio:latest
+    command: nodeos --config-dir=/opt/eosio/data --data-dir=/opt/eosio/data --snapshot=/opt/eosio/data/snapshots/snapshot-0074af4e936cee1f4ab8b2f468ad42e4d1b026084c6a0c71420df990fc64b4c6.bin --hard-replay-blockchain --delete-all-blocks
+.
+.
+.
+```  
